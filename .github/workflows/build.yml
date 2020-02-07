@@ -1,0 +1,43 @@
+name: build
+
+on: [pull_request]
+
+jobs:
+  cryptopuck-build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Install SSH key to fetch github repos
+      uses: shimataro/ssh-key-action@v1
+      with:
+        private-key: ${{ secrets.GIT_SSH }}
+    - name: Install repo tool
+      run: |
+        mkdir bin
+        curl https://storage.googleapis.com/git-repo-downloads/repo > bin/repo
+        chmod a+x bin/repo
+    - name: Install Yocto dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y gawk wget git-core diffstat unzip texinfo gcc-multilib
+        sudo apt-get install -y build-essential chrpath socat cpio python python3 python3-pip
+        sudo apt-get install -y python3-pexpect xz-utils debianutils iputils-ping libsdl1.2-dev xterm
+    - name: Fetch image sources
+      run: |
+        export PATH=${{github.workspace}}/bin:$PATH
+        mkdir dimitriOS
+        cd dimitriOS
+        repo init -u git@github.com:platisd/dimitriOS-manifest.git -m dimitriOS.xml
+        repo sync -j$(nproc)
+        rm -rf layers/meta-dimitriOS
+    - name: Checkout incremental dimitriOS layer
+      uses: actions/checkout@v2
+      with:
+        path: dimitriOS/layers/meta-dimitriOS
+    - name: Build image
+      run: |
+        cd dimitriOS
+        export TEMPLATECONF=${{github.workspace}}/dimitriOS/layers/meta-dimitriOS/rpi-conf/
+        source layers/poky/oe-init-build-env build
+        bitbake cryptopuck-image
