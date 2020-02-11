@@ -1,3 +1,7 @@
+SUMMARY = "Automount USB drives"
+DESCRIPTION = "Automount USB drives with systemd"
+HOMEPAGE = "https://github.com/raamsri/automount-usb"
+
 LICENSE = "PD"
 LIC_FILES_CHKSUM = "file://UNLICENSE;md5=911690f51af322440237a253d695d19f"
 
