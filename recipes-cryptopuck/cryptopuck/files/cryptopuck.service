@@ -1,0 +1,10 @@
+[Unit]
+Description=Cryptopuck
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /usr/bin/python3 /usr/bin/cryptopuck.py --mountpoint=/media/root/ --public-key=/etc/cryptopuck/key.public >> /home/root/cryptopuck.log 2>&1
+
+[Install]
+WantedBy=multi-user.target
