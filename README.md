@@ -65,7 +65,12 @@ Currently, there are images for the following projects:
 
 ### How-to: Build a `dimitriOS` image
 
-1. Get the repo tool to fetch the sources
+1. Install the [host dependencies][] necessary for the Yocto build
+   1. `sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib \`
+   `build-essential chrpath socat cpio python3 python3-pip python3-pexpect \`
+   `xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev \`
+   `pylint3 xterm`
+2. Get the repo tool to fetch the sources
    1. `mkdir ~/bin`
    2. `PATH=~/bin:$PATH`
    3. `curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo`
@@ -75,15 +80,18 @@ Currently, there are images for the following projects:
 3. Choose the `dimitriOS` manifest that includes the BSP for your board and load
 the respective board configuration. E.g. For Raspberry Pi boards:
    1. `repo init -u git@github.com:platisd/dimitriOS-manifest.git -m dimitriOS-rpi.xml`
-   2. `export TEMPLATECONF=/home/dimitris/dimitriOS/layers/meta-dimitriOS/rpi-conf/`
-4. Source the build environment
+   2. `export TEMPLATECONF=~/dimitriOS/layers/meta-dimitriOS/rpi-conf/`
+4. Fetch the source code
+   1. `repo sync`
+5. Source the build environment
    1. `. layers/poky/oe-init-build-env build`
-5. Select the particular board you are targetting. E.g. For Raspberry Pi 4:
+6. Select the particular board you are targetting. E.g. For Raspberry Pi 4:
    1. `export MACHINE=raspberrypi4`
-6. Build the image for the particular board. E.g. For [Cryptopuck][]:
+7. . Build the image for the particular board. E.g. For [Cryptopuck][]:
    1. `bitbake cryptopuck-image`
 
 To rebuild an image using a new shell session, repeat the last three steps.
 
 [Cryptopuck]: https://github.com/platisd/cryptopuck
 [VasttraPi]: https://github.com/platisd/vasttraPi
+[host dependencies]: https://www.yoctoproject.org/docs/3.1/ref-manual/ref-manual.html#ubuntu-packages
