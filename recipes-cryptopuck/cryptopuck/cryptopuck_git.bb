@@ -48,4 +48,4 @@ FILES_${PN} += "\
 REQUIRED_DISTRO_FEATURES= "systemd"
 SYSTEMD_SERVICE_${PN} = "cryptopuck.service"
 
-inherit distro_features_check systemd
+inherit features_check systemd
