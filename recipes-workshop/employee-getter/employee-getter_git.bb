@@ -12,9 +12,22 @@ RDEPENDS_${PN} = "\
 
 SRC_URI = "\
     git://git@github.com/platisd/example-dimitriOS-cmake-project;protocol=ssh;branch=master \
+    file://employee-getter.service \
 "
 SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/git"
 
-inherit cmake
+do_install_append() {
+    install -d ${D}/${systemd_system_unitdir}
+    install -m 0644 ${WORKDIR}/employee-getter.service ${D}/${systemd_system_unitdir}
+}
+
+FILES_${PN} += "\
+    ${systemd_system_unitdir} \
+"
+
+REQUIRED_DISTRO_FEATURES= "systemd"
+SYSTEMD_SERVICE_${PN} = "employee-getter.service"
+
+inherit cmake features_check systemd

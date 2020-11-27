@@ -1,0 +1,10 @@
+[Unit]
+Description=EmployeeGetter
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/employee_getter
+
+[Install]
+WantedBy=multi-user.target
