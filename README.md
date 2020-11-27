@@ -92,6 +92,18 @@ the respective board configuration. E.g. For Raspberry Pi boards:
 
 To rebuild an image using a new shell session, repeat the last three steps.
 
+### Set SSID and password for `wpa_supplicant.conf` during build
+
+If you want to avoid version controlling your WiFi credentials, you can set them during
+build-time using environment variables.
+
+* Set or export two environment variables containing your credentials
+  * `export WIFI_SSID=your-ssid`
+  * `export WIFI_PASSWORD=your-password`
+* Register them via the `BB_ENV_EXTRAWHITE` variable
+  * `export BB_ENV_EXTRAWHITE="WIFI_SSID WIFI_PASSWORD"`
+* Build your image
+
 [Cryptopuck]: https://github.com/platisd/cryptopuck
 [VasttraPi]: https://github.com/platisd/vasttraPi
 [host dependencies]: https://www.yoctoproject.org/docs/3.1/ref-manual/ref-manual.html#ubuntu-packages
