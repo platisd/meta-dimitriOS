@@ -3,7 +3,6 @@ Name=wl*
 
 [Network]
 DHCP=yes
-RouteMetric=20
 IPv6PrivacyExtensions=true
 LinkLocalAddressing=yes
 LLMNR=true

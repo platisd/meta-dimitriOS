@@ -13,7 +13,6 @@ SRC_URI += " \
 # insane and ignore the mount time error.
 EXTRA_OECONF_append = " --with-time-epoch=0"
 
-
 do_install_append() {
     # Intentionally did not create target directory since it is expected to
     # be there and we should fail if it is not

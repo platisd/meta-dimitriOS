@@ -1,0 +1,13 @@
+[Unit]
+Description=DimitriOS WiFi
+BindsTo=sys-subsystem-net-devices-wlan0.device
+After=sys-subsystem-net-devices-wlan0.device
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/sbin/wpa_supplicant -iwlan0 -c/etc/wpa_supplicant/wpa_supplicant.conf -B
+TimeoutStartSec=60
+
+[Install]
+WantedBy=multi-user.target
