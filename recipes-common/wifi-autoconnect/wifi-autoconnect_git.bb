@@ -8,6 +8,7 @@ RDEPENDS_${PN} = "\
 SRC_URI = "\
     file://98-wireless-interface-naming.link \
     file://dimitrios-wifi-wlan0.service \
+    file://LICENSE \
 "
 
 do_install() {
