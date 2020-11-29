@@ -2,6 +2,15 @@
 
 A BitBake layer for my Linux based projects.
 
+- [What](#what)
+- [Why](#why)
+- [How](#how)
+  - [Supported hardware](#supported-hardware)
+  - [Available images](#available-images)
+  - [How-to: Build a `dimitriOS` image](#how-to-build-a-dimitrios-image)
+- [Yocto workshop](#yocto-workshop)
+  - [Set SSID and password for `wpa_supplicant.conf` during build](#set-ssid-and-password-for-wpa_supplicantconf-during-build)
+
 ## What
 
 This is a Bitbake layer that includes recipes for my different Linux-based projects.
