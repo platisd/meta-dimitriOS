@@ -1,6 +1,11 @@
 [Unit]
 Description=EmployeeGetter
 After=multi-user.target
+# Comment out  the previous line and uncomment
+# the ones below to wait for the network to start
+# before launching this service
+# After=network-online.target
+# Wants=network-online.target
 
 [Service]
 Type=simple
