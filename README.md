@@ -71,6 +71,7 @@ Currently, there are images for the following projects:
 | -------------- | ------------------ |
 | [Cryptopuck][] | `cryptopuck-image` |
 | [VasttraPi][]  | `vasttrapi-image`  |
+| Yocto workshop |  `workshop-image`  |
 
 ### How-to: Build a `dimitriOS` image
 
