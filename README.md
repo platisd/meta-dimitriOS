@@ -92,6 +92,12 @@ the respective board configuration. E.g. For Raspberry Pi boards:
 
 To rebuild an image using a new shell session, repeat the last three steps.
 
+## Yocto workshop
+
+`dimitriOS` is also used to give an introduction to Yocto for beginners.
+
+To build the image demonstrated during the workshop, you should follow the
+previous steps and in the final step, run: `bitbake workshop-image`.
 ### Set SSID and password for `wpa_supplicant.conf` during build
 
 If you want to avoid version controlling your WiFi credentials, you can set them during
@@ -102,7 +108,10 @@ build-time using environment variables.
   * `export WIFI_PASSWORD=your-password`
 * Register them via the `BB_ENV_EXTRAWHITE` variable
   * `export BB_ENV_EXTRAWHITE="WIFI_SSID WIFI_PASSWORD"`
-* Build your image
+* Build `workshop-image`
+  * `bitbake workshop-image`
+
+If you are making your own image, don't forget to include `wifi-autoconnect` in your image.
 
 [Cryptopuck]: https://github.com/platisd/cryptopuck
 [VasttraPi]: https://github.com/platisd/vasttraPi
