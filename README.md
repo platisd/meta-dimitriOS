@@ -89,7 +89,7 @@ Currently, there are images for the following projects:
    1. `mkdir dimitriOS && cd dimitriOS`
 3. Choose the `dimitriOS` manifest that includes the BSP for your board and load
 the respective board configuration. E.g. For Raspberry Pi boards:
-   1. `repo init -u git@github.com:platisd/dimitriOS-manifest.git -m dimitriOS-rpi.xml`
+   1. `repo init -u https://github.com/platisd/dimitriOS-manifest.git -m dimitriOS-rpi.xml`
    2. `export TEMPLATECONF=~/dimitriOS/layers/meta-dimitriOS/rpi-conf/`
 4. Fetch the source code
    1. `repo sync`
