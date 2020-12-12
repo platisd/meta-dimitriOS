@@ -15,7 +15,7 @@ RDEPENDS_${PN} = " \
 "
 
 SRC_URI = "\
-    git://git@github.com/platisd/cryptopuck;protocol=ssh;branch=master \
+    git://git@github.com/platisd/cryptopuck;protocol=https;branch=master \
     file://cryptopuck.service \
     file://key.public \
 "

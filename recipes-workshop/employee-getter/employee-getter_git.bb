@@ -11,7 +11,7 @@ RDEPENDS_${PN} = "\
 "
 
 SRC_URI = "\
-    git://git@github.com/platisd/example-dimitriOS-cmake-project;protocol=ssh;branch=master \
+    git://git@github.com/platisd/example-dimitriOS-cmake-project;protocol=https;branch=master \
     file://employee-getter.service \
 "
 SRCREV = "${AUTOREV}"
