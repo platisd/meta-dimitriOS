@@ -10,6 +10,7 @@ A BitBake layer for my Linux based projects.
   - [How-to: Build a `dimitriOS` image](#how-to-build-a-dimitrios-image)
 - [Yocto workshop](#yocto-workshop)
   - [Set SSID and password for `wpa_supplicant.conf` during build](#set-ssid-and-password-for-wpa_supplicantconf-during-build)
+- [Compile Arduino sketches in Yocto](#compile-arduino-sketches-in-yocto)
 
 ## What
 
@@ -126,3 +127,10 @@ If you are making your own image, don't forget to include `wifi-autoconnect` in 
 [Cryptopuck]: https://github.com/platisd/cryptopuck
 [VasttraPi]: https://github.com/platisd/vasttraPi
 [host dependencies]: https://www.yoctoproject.org/docs/3.1/ref-manual/ref-manual.html#ubuntu-packages
+
+## Compile Arduino sketches in Yocto
+
+Using `arduino-cli` we can compile Arduino sketches during the Yocto build that will end up
+on the target filesystem and can be flashed to a connected microcontroller during runtime.
+
+Check out [smartcar-mqtt](recipes-workshop/smartcar-mqtt/) for the corresponding resources and documentation.
